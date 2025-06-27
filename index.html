@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dog API</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            background: #dbdada;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        #dog_img {
+            width: 800px;
+            height: 600px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .loader {
+            display: none;
+            font-size: 20px;
+            color: #2568f8;
+            margin-top: 15px;
+        }
+
+        h2 {
+            color: darkslategray;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #23232c;
+            color: white;
+            border: outset;
+        }
+
+        button:hover {
+            background-color: #6c6c6c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h2>DOG API</h2>
+        <button onclick="handleDogApi()">Change Dog Image</button>
+        <div class="loader">Loading...</div>
+        <img src="" id="dog_img" alt="Dog image" />
+        <br />
+    </div>
+
+    <script>
+        const API_URL = "https://dog.ceo/api/breeds/image/random";
+        const loader = document.querySelector(".loader");
+        const img = document.querySelector("#dog_img");
+
+        function handleDogApi() {
+            loader.style.display = "block";
+            img.style.display = "none";
+
+            fetch(API_URL)
+                .then(res => res.json())
+                .then(data => {
+                    loader.style.display = "none";
+                    img.style.display = "block";
+                    img.src = data.message;
+                })
+                .catch(err => {
+                    loader.textContent = "Failed to load image!";
+                    console.error(err.message);
+                });
+        }
+
+        handleDogApi();
+    </script>
+</body>
+
+</html>

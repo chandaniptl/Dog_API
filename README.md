@@ -1,3 +1,4 @@
+![dog_api](https://github.com/user-attachments/assets/4c64a416-02e1-42f3-bb83-61b4570e477c)
 
 🐶 Dog API
 

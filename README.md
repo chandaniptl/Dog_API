@@ -38,7 +38,7 @@ Device	Layout Behavior
 🚀 Getting Started
 1. Clone the Repository
 
-git clone https://github.com/your-username/dog-api-app
+https://github.com/chandaniptl/Dog_API
 
 2. Navigate to the Folder
 
